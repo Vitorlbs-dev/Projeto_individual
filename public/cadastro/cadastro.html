@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="./style.cad.css">
+    <title>DRAGON BALL | CADASTRO</title>
+</head>
+
+<body>
+    <div class="principal">
+        <div class="container2">
+            <div class="login_cadastro">
+                <h4 onclick="cadastro()" id="cadastroBotao">Crie sua conta</h4 >
+                <h4 onclick="login()" id="loginBotao">Entrar</h4>
+            </div>
+            
+            <div class="campos" id="bloco_cadastro">
+                <input type="text" id="input_nome" placeholder="Nome"> <br>
+                <input type="text" id="input_email" placeholder="Email"> <br>
+                <input type="password" id="input_senha" placeholder="Senha"> <br>
+                <input type="password" id="input_senha2" placeholder="Confirmar senha"> <br>
+               <div id="res"><span class="rodape">Os campos devem ser preenchidos</span><br></div>
+            </div> 
+            <div class="campos" id="bloco_login">
+                <input type="text" placeholder="Email" id="input_email_login" /><br />
+                <input type="password" placeholder="Senha" id="input_senha_login" />
+                 <div id="msg"><span class="rodape">Os campos devem ser preenchidos</span><br></div>
+            </div>
+            
+            <div class="botao">
+                <button onclick="cadastrar()" id="botao_cadastro">Cadastrar</button>
+                <button onclick="entrar()" id="botao_login">Entrar</button>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+<script>
+    bloco_login.style.display = "none"
+    botao_login.style.display = "none"
+
+    function login() {
+        loginBotao.style="border-bottom: 3px solid orangered;  transform: scale(1.03); transition: all 0.2s ease-in-out;" 
+        cadastroBotao.style="border-bottom: none;"   
+        bloco_login.style = "display: block; opacity: 1; transform: translateY(0);"
+        botao_login.style = "display: block; opacity: 1; transform: translateY(0);"
+        bloco_cadastro.style = "display: none; opacity: 0; transform: translateY(20px); transition: opacity 0.4s ease, transform 0.4s ease;"
+        botao_cadastro.style = "display: none; opacity: 0; transform: translateY(20px); transition: opacity 0.4s ease, transform 0.4s ease;"
+    }
+     function cadastro() {
+        cadastroBotao.style="border-bottom: 3px solid orangered;  transform: scale(1.03); transition: all 0.2s ease-in-out;"  
+        loginBotao.style="border-bottom: none;" 
+        bloco_login.style = "display: none; opacity: 0; transform: translateY(20px); transition: opacity 0.4s ease, transform 0.4s ease;"
+        botao_login.style = "display: none; opacity: 0; transform: translateY(20px); transition: opacity 0.4s ease, transform 0.4s ease;"
+        bloco_cadastro.style = "display: block; opacity: 1; transform: translateY(0);"
+        botao_cadastro.style = "display: block; opacity: 1; transform: translateY(0);"
+    }
+
+    function cadastrar() {
+        var nome = input_nome.value;
+        var nomeFormatado = nome.trim();
+        var email = input_email.value;
+        var emailFormatado = email.trim();
+        var senha = input_senha.value;
+        var senhaCon = input_senha2.value;
+        var senhaTamanho = senha.length;
+        var senhaMinuscula = senha.toLowerCase();
+        var msg = ''
+
+        // VALIDAÇÃO DE SENHA
+        var cont = 0
+        var numeros = '1234567890'
+        var senhaTemNum = false
+        while (cont < senhaTamanho) {
+            console.log(`CHEGOU AQUI NO WHILLE`)
+            if (senha.includes(numeros[cont])) {
+                senhaTemNum = true
+                break;
+            } else {
+                msg = `<span style="color: red; font-weight: bold;"> *Senha não atende todos requisitos </span>`
+            }
+            cont++
+            console.log(msg)
+        }
+        // VALIDAÇÕES
+        if (nomeFormatado == '' || emailFormatado == '' || senha == '' || senhaCon == '') {
+            msg = `<span style="color: red; font-weight: bold;">*Ainda faltam campos para preencher!</span>`
+        } else if (!email.includes('@gmail.com') && !email.includes('@sptech.school')) {
+            msg = `<span style="color: red; font-weight: bold;">*Formato de email inválido </span>`
+
+        } else if (senhaTamanho < 8 || senha == senhaMinuscula || senhaTemNum == false || (!senha.includes('@') && !senha.includes('&') && !senha.includes('#') && !senha.includes('$') && !senha.includes('!'))) {
+            msg = `<span style="color: red; font-weight: bold;"> *Senha deve ter pelo menos 1 caracter especial,<br>1 número e 1 letra maiuscula.</span>`
+
+        } else if (senhaCon != senha) {
+            msg = `<span style="color: red; font-weight: bold;"> *Confirmação de senha inválida.</span>`
+        } else {
+
+            msg = `<span style="color: green; font-weight: bold;">Cadastro Realizado com sucesso!</span>`
+        }
+        res.innerHTML = ' '
+        res.innerHTML = msg
+    }
+
+
+    function entrar() {
+      
+        var email = input_email_login.value;
+        var senha = input_senha_login.value;
+        var mensagem = '';
+
+        if (email == '') {
+            mensagem = 'O campo de email não pode estar vazio.';
+        } else if (!email.includes('@') || !email.includes('.')) {
+            mensagem = 'Digite um email válido.';
+        }
+
+        if (mensagem == '') {
+            if (senha == '') {
+                mensagem = 'O campo de senha não pode estar vazio.';
+            } else if (senha.length < 8) {
+                mensagem = 'A senha deve ter pelo menos 8 caracteres.';
+            }
+        }
+        if (mensagem != '') {
+            msg.style.color = 'red';
+            msg.innerHTML = mensagem;
+            msg.innerHTML = '';
+            return;
+        }
+
+        if (email == 'claudio@sptech.school' && senha == 'Tech#123') {
+            msg.style.color = 'green';
+            msg.innerHTML = 'Bem-vindo Claudio!';
+            msg.innerHTML = '';
+        } else {
+            msg.style.color = 'red';
+            msg.innerHTML = 'Credenciais inválidas';
+            msg.innerHTML = '';
+        }
+    }
+
+</script>
