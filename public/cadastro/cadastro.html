@@ -128,20 +128,20 @@
             }
         }
         if (mensagem != '') {
-            msg.style.color = 'red';
+            msg.style = "color: red; font-weight: bold;"
             msg.innerHTML = mensagem;
-            msg.innerHTML = '';
+            
             return;
         }
 
-        if (email == 'claudio@sptech.school' && senha == 'Tech#123') {
-            msg.style.color = 'green';
-            msg.innerHTML = 'Bem-vindo Claudio!';
-            msg.innerHTML = '';
+        if (email == 'vitor@sptech.school' && senha == 'Vitor@123') {
+            msg.style = "color: green; font-weight: bold;"
+            msg.innerHTML = 'Bem-vindo Vitor!';
+            
         } else {
-            msg.style.color = 'red';
+            msg.style = "color: red; font-weight: bold;";
             msg.innerHTML = 'Credenciais inválidas';
-            msg.innerHTML = '';
+            
         }
     }
 
