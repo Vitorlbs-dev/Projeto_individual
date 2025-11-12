@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="">
-    <link rel="stylesheet" href="./style.cad.css">
+    <link rel="stylesheet" href="./css/style.cad.css">
     <title>DRAGON BALL | CADASTRO</title>
 </head>
 
@@ -64,13 +64,13 @@
 
     function cadastrar() {
         var nome = input_nome.value;
-        var nomeFormatado = nome.trim();
+        var nomeVar = nome.trim();
         var email = input_email.value;
-        var emailFormatado = email.trim();
-        var senha = input_senha.value;
+        var emailVar = email.trim();
+        var senhaVar = input_senha.value;
         var senhaCon = input_senha2.value;
-        var senhaTamanho = senha.length;
-        var senhaMinuscula = senha.toLowerCase();
+        var senhaTamanho = senhaVar.length;
+        var senhaMinuscula = senhaVar.toLowerCase();
         var msg = ''
 
         // VALIDAÇÃO DE SENHA
@@ -79,52 +79,80 @@
         var senhaTemNum = false
         while (cont < senhaTamanho) {
             console.log(`CHEGOU AQUI NO WHILLE`)
-            if (senha.includes(numeros[cont])) {
+            if (senhaVar.includes(numeros[cont])) {
                 senhaTemNum = true
                 break;
             } else {
-                msg = `<span style="color: red; font-weight: bold;"> *Senha não atende todos requisitos </span>`
+                msg = `<span style="color: red; font-weight: bold;"> *A senha não atende todos requisitos </span>`
             }
             cont++
             console.log(msg)
         }
         // VALIDAÇÕES
-        if (nomeFormatado == '' || emailFormatado == '' || senha == '' || senhaCon == '') {
+        if (nomeVar == '' || emailVar == '' || senhaVar == '' || senhaCon == '') {
             msg = `<span style="color: red; font-weight: bold;">*Ainda faltam campos para preencher!</span>`
-        } else if (!email.includes('@gmail.com') && !email.includes('@sptech.school')) {
+        } else if (!emailVar.includes('@gmail.com') && !emailVar.includes('@sptech.school')) {
             msg = `<span style="color: red; font-weight: bold;">*Formato de email inválido </span>`
 
-        } else if (senhaTamanho < 8 || senha == senhaMinuscula || senhaTemNum == false || (!senha.includes('@') && !senha.includes('&') && !senha.includes('#') && !senha.includes('$') && !senha.includes('!'))) {
-            msg = `<span style="color: red; font-weight: bold;"> *Senha deve ter pelo menos 1 caracter especial,<br>1 número e 1 letra maiuscula.</span>`
+        } else if (senhaTamanho < 8 || senhaVar == senhaMinuscula || senhaTemNum == false || (!senhaVar.includes('@') && !senhaVar.includes('&') && !senhaVar.includes('#') && !senhaVar.includes('$') && !senhaVar.includes('!'))) {
+            msg = `<span style="color: red; font-weight: bold;"> *senha deve ter pelo menos 1 caracter especial,<br>1 número e 1 letra maiuscula.</span>`
 
-        } else if (senhaCon != senha) {
-            msg = `<span style="color: red; font-weight: bold;"> *Confirmação de senha inválida.</span>`
+        } else if (senhaCon != senhaVar) {
+            msg = `<span style="color: red; font-weight: bold;"> *Confirmação de senhaVar inválida.</span>`
         } else {
 
             msg = `<span style="color: green; font-weight: bold;">Cadastro Realizado com sucesso!</span>`
         }
         res.innerHTML = ' '
         res.innerHTML = msg
+
+
+          fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+      }),
+    })
+      .then(function (resposta) {
+        if (resposta.ok) {
+          alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+          setTimeout(() => {
+            trocar();
+          }, 800);
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+    return false;
     }
 
 
-    function entrar() {
-      
-        var email = input_email_login.value;
-        var senha = input_senha_login.value;
+     function entrar() {
+            
+        var usuarioVar = input_email_login.value;
+        var senhaVar = input_senha_login.value;
         var mensagem = '';
 
-        if (email == '') {
+        if (usuarioVar == '') {
             mensagem = 'O campo de email não pode estar vazio.';
-        } else if (!email.includes('@') || !email.includes('.')) {
+        } else if (!usuarioVar.includes('@') || !usuarioVar.includes('.')) {
             mensagem = 'Digite um email válido.';
         }
 
         if (mensagem == '') {
-            if (senha == '') {
-                mensagem = 'O campo de senha não pode estar vazio.';
-            } else if (senha.length < 8) {
-                mensagem = 'A senha deve ter pelo menos 8 caracteres.';
+            if (senhaVar == '') {
+                mensagem = 'O campo de senhaVar não pode estar vazio.';
+            } else if (senhaVar.length < 8) {
+                mensagem = 'A senhaVar deve ter pelo menos 8 caracteres.';
             }
         }
         if (mensagem != '') {
@@ -134,7 +162,7 @@
             return;
         }
 
-        if (email == 'vitor@sptech.school' && senha == 'Vitor@123') {
+        if (usuarioVar == 'vitor@sptech.school' && senhaVar == 'Vitor@123') {
             msg.style = "color: green; font-weight: bold;"
             msg.innerHTML = 'Bem-vindo Vitor!';
             
@@ -143,6 +171,45 @@
             msg.innerHTML = 'Credenciais inválidas';
             
         }
+
+         
+
+    if (usuarioVar === "" || senhaVar === "") {
+      alert("Todos os campos são obrigatórios!");
+      return false;
+    }
+
+    fetch("/usuarios/autenticar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        emailServer: usuarioVar,
+        senhaServer: senhaVar,
+      }),
+    })
+      .then(function (resposta) {
+        if (resposta.ok) {
+          resposta.json().then((json) => {
+            sessionStorage.EMAIL_USUARIO = json.email;
+            sessionStorage.NOME_USUARIO = json.nome;
+            sessionStorage.ID_USUARIO = json.idUsuario;
+
+            alert("Login realizado com sucesso!");
+            window.location = "./dashboard/dashboard.html";
+          });
+        } else {
+          throw "Usuário ou senhaVar inválidos!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        erro_login.style.opacity = '1'
+      });
+
+    return false;
+
     }
 
 </script>
