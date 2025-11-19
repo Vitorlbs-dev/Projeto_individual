@@ -12,35 +12,6 @@ ipt_email.value = emailUsuario
 
 
 
-
-function AbrirConfiguracoes() {
-    modal_configuracoes.showModal()
-}
-
-function sairConfiguracoes() {
-    modal_configuracoes.close()
-    trocarFundo.style.display = 'flex'
-   trocarSenha.style.display = 'flex'
-   background.style.display = 'none'
-   senha.style.display = 'none'
-}
-function destrocar() {
-    trocarFundo.style.display = 'flex'
-   trocarSenha.style.display = 'flex'
-   background.style.display = 'none'
-   senha.style.display = 'none'
-}
-
-function TrocarBackground() {
-   trocarFundo.style.display = 'none'
-   trocarSenha.style.display = 'none'
-   background.style.display = 'flex'
-}
-function TrocarSenha() {
-    trocarFundo.style.display = 'none'
-   trocarSenha.style.display = 'none'
-   senha.style.display = 'flex'
-}
 var stage = sessionStorage.numeroStage
 dash.classList.remove(`fotoStage1`)
 dash.classList.add(`fotoStage${stage}`)
@@ -51,7 +22,6 @@ function verificarStage(numeroStage) {
     sessionStorage.setItem('numeroStage', numeroStage);
     stage = sessionStorage.numeroStage
     dash.classList.add(`fotoStage${stage}`)
-    sairConfiguracoes()
 }
   function sairSessao() {
     sessionStorage.clear()

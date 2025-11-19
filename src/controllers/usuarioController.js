@@ -68,27 +68,9 @@ function cadastrar(req, res) {
     }
 }
 
-function atualizar(req, res) {
-    var idUsuario = req.params.idUsuario;
-    var senha = req.body.senha;
 
-    usuarioModel.atualizar(idUsuario, senha)
-        .then(function (resultado) {
-            if (resultado.affectedRows > 0) {
-                res.status(200).send("Senha atualizada com sucesso!");
-            } else {
-                res.status(404).send("Usuário não encontrado!");
-            }
-        })
-        .catch(function (erro) {
-            console.log(erro);
-            console.log("\nHouve um erro ao atualizar a senha do usuário! Erro: ", erro.sqlMessage);
-            res.status(500).json(erro.sqlMessage);
-        });
-}
 
 module.exports = {
     autenticar,
     cadastrar,
-    atualizar
 }

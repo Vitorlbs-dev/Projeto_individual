@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: black;
+  background-color: rgb(187, 94, 19);
 }
 
 :root {
@@ -23,7 +23,7 @@ body {
 
 .header {
   height: var(--tamanho-header);
-  border-bottom: 2px solid #32b9cd;
+  border-bottom: 2px solid #fffb00;
 }
 
 .header .container {
@@ -51,7 +51,7 @@ body {
 }
 
 .titulo {
-  color: #32b9cd;
+  color: #fffb00;
   width: fit-content;
   font-weight: 500;
 }
@@ -64,9 +64,11 @@ body {
 
 .banner {
   height: var(--tamanho-banner);
-  color: white;
-  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
-  background-size: cover;
+  background-color: black;
+  background-image: url('https://m.media-amazon.com/images/I/91of7+DvLDL.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  
 }
 
 .banner .container {
@@ -89,12 +91,46 @@ body {
 /* MISSÃO VISÃO VALORES */
 
 .social {
-  background-color: #e5e5e5;
+    background-color:darkgray;
   display: flex;
 }
 
-.social .container {
+.h1-historia{
+  display: flex;
   justify-content: center;
+  background-color:darkgray;
+  font-size: 40px;
+  text-shadow: #fffb00;
+  padding: 5% 0 5% 0;
+}
+
+.social .container {
+  justify-content: space-between;
+  gap: 10%; 
+}
+
+.box1-historia{
+  
+  width: 80%;
+  height: 80vh;
+}
+
+.box2-historia{ 
+
+  width: 50%;
+  height: 80vh;
+}
+
+.box2-historia img{
+ border-radius: 20px;
+ border: solid 5px goldenrod;
+}
+
+.texto-historia{
+  font-weight: 500;
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align:justify;
 }
 
 .box img {
@@ -108,15 +144,60 @@ body {
   padding: 30px 0;
 }
 
-.social p {
-  text-align: center;
+.boxes{
+  gap: 3%;
 }
 
 .box {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 35%;
+  height: 50vh;
+  color: #fff;
+  font-weight: bold;
+  align-items: start;
+  justify-content: center;
+  padding-left: 10px;
+  background-color: rgba(0, 0, 0, 0.521);
+  background-size: cover;
+  border-radius: 10px;
+  border: solid 3px goldenrod;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
+.box p{
+  width: 50%;
+  text-align: left;
+}
+
+.bloco1{
+  background-image: url('https://images8.alphacoders.com/676/thumb-1920-676453.png');
+}
+.bloco2{
+  background-image: url('https://images.alphacoders.com/676/thumb-440-676444.webp');
+
+}
+.bloco3{
+  background-image: url('https://images8.alphacoders.com/676/thumb-440-676473.webp');
+
+}
+.bloco4{
+    background-image: url('https://images6.alphacoders.com/676/thumb-440-676438.webp');
+}
+.bloco5{
+    background-image: url('https://images7.alphacoders.com/676/thumb-1920-676467.png');
+
+}
+.bloco6{
+      background-image: url('https://images8.alphacoders.com/676/thumb-440-676459.webp');
+
+}
+
+.box:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+} 
 
 /* FOOTER */
 
@@ -139,17 +220,7 @@ body {
 
 /* LOGIN */
 
-.login {
-  height: var(--tamanho-login);
-  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
-  background-size: cover;
-}
 
-.login .container {
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
 
 .card {
   width: 50%;
@@ -300,18 +371,6 @@ input {
 .loading-div img {
   height: 50px;
   width: 50px;
-}
-
-/* SIMULADOR */
-
-.simulador {
-  color: white;
-}
-
-.simulador .container {
-  flex-direction: column;
-  overflow: scroll; 
-  height: var(--tamanho-simulador);
 }
 
 /* ALERTA */

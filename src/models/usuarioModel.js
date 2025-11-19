@@ -22,15 +22,8 @@ function cadastrar(nome, email, senha) {
     return database.executar(instrucaoSql);
 }
 
-function atualizar(idUsuario, senha) {
-    var instrucaoSql = `
-        UPDATE usuario SET senha = '${senha}' WHERE idUsuario = ${idUsuario};
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
-}
+
 module.exports = {
     autenticar,
     cadastrar,
-    atualizar
 };
