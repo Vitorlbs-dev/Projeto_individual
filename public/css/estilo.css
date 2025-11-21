@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: rgb(187, 94, 19);
+  background-color:black;
 }
 
 :root {
@@ -42,12 +42,14 @@ body {
 }
 
 .navbar {
-  width: 300px;
+  width: 50%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   list-style: none;
   color: #e3b062;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .titulo {
@@ -65,14 +67,14 @@ body {
 .banner {
   height: var(--tamanho-banner);
   background-color: black;
-  background-image: url('https://m.media-amazon.com/images/I/91of7+DvLDL.jpg');
+  background-image: url('../assets/novoBanner.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   
 }
 
 .banner .container {
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   height: 100%;
 }
@@ -82,6 +84,7 @@ body {
   margin: 0;
   padding: 0;
   font-size: 36px;
+  color: rgb(0, 0, 0) ;
 }
 
 .banner .container span {
@@ -101,7 +104,7 @@ body {
   background-color:darkgray;
   font-size: 40px;
   text-shadow: #fffb00;
-  padding: 5% 0 5% 0;
+  padding: 2% 0 3% 0;
 }
 
 .social .container {
@@ -145,7 +148,7 @@ body {
 }
 
 .boxes{
-  gap: 3%;
+  gap: 2%;
 }
 
 .box {
@@ -172,37 +175,38 @@ body {
 }
 
 .bloco1{
-  background-image: url('https://images8.alphacoders.com/676/thumb-1920-676453.png');
+  background-image: url('../assets/cardGoku.png');
 }
 .bloco2{
-  background-image: url('https://images.alphacoders.com/676/thumb-440-676444.webp');
+  background-image: url('../assets/cardVegeta.webp');
 
 }
 .bloco3{
-  background-image: url('https://images8.alphacoders.com/676/thumb-440-676473.webp');
+  background-image: url('../assets/cardGohan.webp');
 
 }
 .bloco4{
-    background-image: url('https://images6.alphacoders.com/676/thumb-440-676438.webp');
+    background-image: url('../assets/cardTranks.webp');
 }
 .bloco5{
-    background-image: url('https://images7.alphacoders.com/676/thumb-1920-676467.png');
+    background-image: url('../assets/cardGotranks.png');
 
 }
 .bloco6{
-      background-image: url('https://images8.alphacoders.com/676/thumb-440-676459.webp');
+      background-image: url('../assets/videl.webp');
 
 }
 
 .box:hover{
-  transform: translateY(-8px);
+   transform: scale(1.1);
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
 } 
 
 /* FOOTER */
 
 .footer {
-  background-color: #32b9cd;
+  border-top: solid 2px goldenrod;
+  background-color: black;
   height: 150px;
   color: #fff;
   display: flex;

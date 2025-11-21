@@ -26,9 +26,9 @@
 
 
 
-<body>
+<body onload="obterPontos(), PontosGerais()">
 
-    <div class="janela">
+    <div  class="janela">
         <div class="header-left">
             <img src="../assets/images/logo.png" alt="">
             <div class="hello">
@@ -320,11 +320,15 @@
             </div>
 
         </div>
+
+        <!--DASHBOARD-->
+        
         <div class="conteudo">
 
             <div id="dash" class="dash">
                 <h1 class="titulo-dash">Painel de Controle</h1>
-
+                
+                         <!--KPIS-->
                 <div class="kpis">
                     <div class="kpi1"><h2>Vezes que Realizou os <br> Quizzes</h2> <h3 id="vezes_kpi">0</h3></div>
                     <div class="kpi2"><h2>Quantidade de Pontos no Total</h2> <h3 id="pts_kpi">0 Pts</h3></div>

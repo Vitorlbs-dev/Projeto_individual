@@ -32,10 +32,10 @@ function plotarGrafico() {
 
 function plotarGrafico2() {
     var data2 = {
-        labels: ['Fácil', 'Médio', 'Difícil'],
+        labels: ['Tentativa',],
         datasets: [{
             label: 'Pontos',
-            data: [pontosFacil, pontosMedio, pontosDificil],
+            data: [pontosFacil,],
             backgroundColor: 'orange',
             borderColor: 'white',
             borderWidth: 1

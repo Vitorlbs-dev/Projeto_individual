@@ -57,7 +57,8 @@ body {
 
 
 .container2 span {
-  color: #363636;
+  color: black;
+  font-weight: 500;
   margin: 10px;
   margin-bottom: 8px;
   font-family: 'Poppins';

@@ -21,16 +21,12 @@ CREATE TABLE quiz (
 
 CREATE TABLE quiz (
     idQuiz int PRIMARY KEY AUTO_INCREMENT,
-    pergunta text,
-    opcaoA varchar(10),
-    opcaoB varchar(10),
-    opcaoC varchar(10),
-    opcaoD varchar(10),
-    resposta varchar(1)
+    descricao text
+    
     );
     
-/*
-OUTRA OPÇÃO:
+
+-- OUTRA OPÇÃO:
 
 CREATE TABLE pontuacoes (
     idPontuacao int PRIMARY KEY AUTO_INCREMENT,
@@ -43,8 +39,9 @@ CREATE TABLE pontuacoes (
     FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
     FOREIGN KEY (fkQuiz) REFERENCES quiz(idQuiz)
 );
-*/
-
+select * from pontuacoes;
+-- drop table quiz;
+/*
 CREATE TABLE respostaQuiz (
     id INT,
     fkUsuario INT NOT NULL,
@@ -54,4 +51,5 @@ CREATE TABLE respostaQuiz (
     constraint pkComposta primary key(id,fkUsuario,fkPergunta),
     FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
     FOREIGN KEY (fkPergunta) REFERENCES quiz(idQuiz)
-);
+);*/
+
