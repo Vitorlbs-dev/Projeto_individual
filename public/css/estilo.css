@@ -3,7 +3,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Bangers", system-ui;
   background-color:black;
 }
 
@@ -19,6 +19,10 @@ body {
   display: flex;
   width: 80%;
   margin: auto;
+}
+
+a{
+  transition: 0.8s;
 }
 
 .header {
@@ -98,6 +102,8 @@ body {
   display: flex;
 }
 
+
+
 .h1-historia{
   display: flex;
   justify-content: center;
@@ -106,6 +112,9 @@ body {
   text-shadow: #fffb00;
   padding: 2% 0 3% 0;
 }
+
+
+
 
 .social .container {
   justify-content: space-between;
@@ -132,7 +141,6 @@ body {
 .texto-historia{
   font-weight: 500;
   font-size: 25px;
-  font-family: Arial, Helvetica, sans-serif;
   text-align:justify;
 }
 
@@ -161,7 +169,7 @@ body {
   align-items: start;
   justify-content: center;
   padding-left: 10px;
-  background-color: rgba(0, 0, 0, 0.521);
+  background-color: #1C2238;
   background-size: cover;
   border-radius: 10px;
   border: solid 3px goldenrod;
@@ -200,6 +208,7 @@ body {
 .box:hover{
    transform: scale(1.1);
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+  background-color: #0d111e;
 } 
 
 /* FOOTER */
@@ -283,7 +292,6 @@ body {
 
 .botao {
   cursor: pointer;
-  font-family: "Barlow", sans-serif;
   border: 0;
   border-radius: 5px;
   font-weight: 600;
@@ -353,7 +361,6 @@ input {
 }
 
 .btn {
-  font-family: "Barlow", sans-serif;
   border: 0;
   border-radius: 5px;
   font-weight: 600;

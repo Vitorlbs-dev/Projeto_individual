@@ -25,7 +25,7 @@ function verificarStage(numeroStage) {
 }
   function sairSessao() {
     sessionStorage.clear()
-    window.location = "/cadastro.html";
+    window.location = "/index.html";
   }
 
 

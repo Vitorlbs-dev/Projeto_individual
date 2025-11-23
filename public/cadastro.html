@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="">
     <link rel="stylesheet" href="./css/style.cad.css">
+    <link rel="icon" href="./assets/esfera.ico" type="image/x-icon">
     <title>DRAGON BALL | CADASTRO</title>
 </head>
 
@@ -162,15 +163,6 @@
             return;
         }
 
-        if (usuarioVar == 'vitor@sptech.school' && senhaVar == 'Vitor@123') {
-            msg.style = "color: green; font-weight: bold;"
-            msg.innerHTML = 'Bem-vindo Vitor!';
-            
-        } else {
-            msg.style = "color: red; font-weight: bold;";
-            msg.innerHTML = 'Credenciais inválidas';
-            
-        }
 
          
 
@@ -196,8 +188,9 @@
             sessionStorage.NOME_USUARIO = json.nome;
             sessionStorage.ID_USUARIO = json.idUsuario;
 
-            alert("Login realizado com sucesso!");
-            window.location = "./EXEMPLO_QUIZZ.html";
+            msg.style = "color: green; font-weight: bold;"
+            msg.innerHTML = `Bem-vindo!`;
+            window.location = "./quiz.html";
           });
         } else {
           throw "Usuário ou senhaVar inválidos!";

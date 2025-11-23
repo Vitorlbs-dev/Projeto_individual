@@ -34,20 +34,23 @@ function plotarGrafico2() {
     var data2 = {
         labels: ['Tentativa',],
         datasets: [{
-            label: 'Pontos',
-            data: [pontosFacil,],
+            label: 'Acertos',
+            data: [mostrarGrafico,],
             backgroundColor: 'orange',
             borderColor: 'white',
             borderWidth: 1
         }]
     };
+    
 
     var options2 = {
         responsive: false,
         maintainAspectRatio: false,
         scales: {
             y: {
-                beginAtZero: true
+                beginAtZero: true,
+                max: 100,
+                min: 0
             }
         }
     };
@@ -63,3 +66,6 @@ function plotarGrafico2() {
         });
     }
 }
+
+
+

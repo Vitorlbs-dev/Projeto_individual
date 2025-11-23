@@ -14,7 +14,7 @@ JOIN (
     FROM pontuacoes
     WHERE fkUsuario = ${idUsuario}
     ORDER BY idPontuacao DESC
-    LIMIT ${limite_linhas}
+    LIMIT 2
 ) p ON p.fkUsuario = u.idUsuario
 WHERE u.idUsuario =  ${idUsuario}
 GROUP BY u.idUsuario;`

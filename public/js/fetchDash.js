@@ -2,7 +2,7 @@
 //OBTÉM ÚLTIMOS PONTOS DO USUÁRIO (para KPI)
 
 var contadorGrafico = 0;
-
+var mostrarGrafico = 0;
 function obterPontos() {
     fetch(`http://localhost:3333/pontuacoes/ultimas/${idUsuario}`, {
         method: "GET",
@@ -24,13 +24,16 @@ function obterPontos() {
 
         total_acertos = qtd_acertos;
         total_erros = qtd_erros;
-
+        var acertosGrafico = Number(sessionStorage.CERTAS)
+        mostrarGrafico = (acertosGrafico*100)/(10)
         if (contadorGrafico == 0) {
             setTimeout(plotarGrafico, 150);
+            setTimeout(plotarGrafico2, 150);
+            
+
         }
         contadorGrafico++;
 
-        selecionarPersonagem();
 
 
   
@@ -52,7 +55,7 @@ function obterPontos() {
 
 
 function PontosGerais() {
-    fetch(`http://localhost:3333/pontuacoes//tempo-real/`, {
+    fetch(`http://localhost:3333/pontuacoes/tempo-real/`, {
         method: "GET",
         
     })
@@ -86,7 +89,8 @@ function PontosGerais() {
         pts_quinto.innerHTML = `${pontosQuinto} Pts`;
 
         verificacao();
-        console.log(nome_primeiro)
+        console.log(resposta)
     })
     .catch(error => console.error('Erro ranking:', error));
 }
+
