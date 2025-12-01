@@ -268,6 +268,9 @@
         window.location = "../dashboard.html";
        
     }
+
+    // FETCH DE INSERT DO QUIZ NO BANCO
+
     function enviarPontuacaoParaBanco(){
         
         const idUsuario = sessionStorage.ID_USUARIO;

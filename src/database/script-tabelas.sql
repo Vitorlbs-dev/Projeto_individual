@@ -16,9 +16,6 @@ CREATE TABLE usuario (
     email varchar(50) unique,
     senha varchar(50)
 );
-select * from usuario;
-
-
 
 CREATE TABLE quiz (
     idQuiz int PRIMARY KEY AUTO_INCREMENT,
@@ -39,20 +36,19 @@ CREATE TABLE pontuacoes (
     FOREIGN KEY (fkQuiz) REFERENCES quiz(idQuiz)
 );
 
-/*-- Inserindo dados na tabela usuario
 INSERT INTO usuario (nome, email, senha) VALUES 
-('matheus', 'matheus@outlook.com', '123456'),
-('antônio', 'antonio@outlook.com', '123456'),
-('Renato', 'renato@outlook.com', '123456'),
-('Araújo', 'Araújo@outlook.com', '123456'),
-('Felps', 'Felps@outlook.com', '123456');
+('Edvaldo', 'edvaldo@outlook.com', 'Vitor@123'),
+('Hercules', 'hercules@outlook.com', 'Vitor@123'),
+('Weverton', 'weverton@outlook.com', 'Vitor@123'),
+('Ana', 'ana@outlook.com', 'Vitor@123'),
+('Luiza', 'luiza@outlook.com', 'Vitor@123');
+	
+INSERT INTO pontuacoes (fkUsuario, pontos_recebidos, acertos, erros) VALUES 
+(1, 10, 9, 1),
+(2, 8, 11, 9),
+(3,  6, 6, 4),
+(4,  6, 6, 4),
+(5,  6, 6, 4);
 
-
--- Inserindo dados na tabela pontuacoes
-INSERT INTO pontuacoes (fkUsuario, fkQuiz, pontos_recebidos, acertos, erros) VALUES 
-(1, 3, 27, 9, 1),
-(2, 2, 22, 11, 9),
-(3, 1, 6, 6, 4),
-(4, 3, 42, 14, 6),
-(5, 2, 34, 17, 3);
-*/
+select * from pontuacoes;
+select * from usuario;

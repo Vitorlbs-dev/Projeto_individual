@@ -11,6 +11,8 @@ function obterPontos() {
     .then(res => res.json())
     .then(resposta => {
 
+        // KPIS
+
         resposta.reverse();
 
         var pontosRecebidos = resposta[0].total_pontos;
@@ -24,20 +26,16 @@ function obterPontos() {
 
         total_acertos = qtd_acertos;
         total_erros = qtd_erros;
+        // DADOS DO DO GRAFICO DE BARRAS
+
         var acertosGrafico = Number(sessionStorage.CERTAS)
         mostrarGrafico = (acertosGrafico*100)/(10)
+
         if (contadorGrafico == 0) {
             setTimeout(plotarGrafico, 150);
-            setTimeout(plotarGrafico2, 150);
-            
-
+            setTimeout(plotarGrafico2, 150);           
         }
-        contadorGrafico++;
-
-
-
-  
-    
+        contadorGrafico++;  
 
     contadorGrafico = 0;
     contadorGrafico2 = 0;
@@ -63,6 +61,8 @@ function PontosGerais() {
     .then(resposta => {
 
         resposta.reverse();
+
+        // RANKING
 
         var pontosPrimeiro = resposta[4].total_pontos;
         var pontosSegundo = resposta[3].total_pontos;
